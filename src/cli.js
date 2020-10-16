@@ -6,7 +6,7 @@ const report = (...messages) => console.log('[ACT-CLI]', ...messages)
 async function checkNodeVersion () {
   const nodeVersion = await exec('node -v')
 
-  let nv = parseInt(nodeVersion.stdout.substring(1))
+  const nv = parseInt(nodeVersion.stdout.substring(1))
   if (nv < 10) {
     throw new Error('Please ensure you are running node 10 or greater')
   } else {
@@ -46,6 +46,4 @@ export async function cli (args) {
   // git commit -m "Initial commit"
   // hub create bbc/${name}
   // report(`Setup for ${name}` complete!)
-
-
 }

@@ -1,2 +1,2 @@
-esm = require('esm')(module)
+const esm = require('esm')(module)
 esm('../src/cli').cli(process)
