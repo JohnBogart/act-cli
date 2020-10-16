@@ -1,5 +1,6 @@
 import prompts from 'prompts'
 import exec from './utils/asyncExec'
+import { runBootstrap } from '../scripts/bootstrap'
 
 const report = (...messages) => console.log('[ACT-CLI]', ...messages)
 
@@ -28,15 +29,16 @@ export async function cli (args) {
   report('START')
   report('Checking Node Version')
   await checkNodeVersion()
-  const name = await nameRepo()
+  // const name = await nameRepo()
+  const name = 'act-test-john'
   report(name)
-  report('Creating project')
+  // report('Creating project')
   await exec(`mkdir ${name}`)
-  args.chdir(`${name}`)
-  report(`Current Directory: ${args.cwd()}`)
-  report('Project directory created')
+  // args.chdir(`act-cli`)
+  // report(`Current Directory: ${args.cwd()}`)
+  // report('Project directory created')
   report(`Setting up ${name}`)
-  await exec('node scripts/bootstrap.js')
+  await runBootstrap(args, name)
   report('Set up complete')
 
   // npm run bootstrap (move all of our set up code from act-test-template into here)
