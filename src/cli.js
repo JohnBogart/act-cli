@@ -33,7 +33,6 @@ export async function cli (args) {
   const name = 'act-test-john'
   report(name)
   // report('Creating project')
-  await exec(`mkdir ${name}`)
   // args.chdir(`act-cli`)
   // report(`Current Directory: ${args.cwd()}`)
   // report('Project directory created')
